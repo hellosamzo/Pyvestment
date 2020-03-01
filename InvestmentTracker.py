@@ -4,6 +4,7 @@ import requests
 from urllib import request
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
 def get_investment_fund():
     url = "https://uk.finance.yahoo.com/quote/0P00019YY3.L?p=0P00019YY3.L&.tsrc=fin-srch"
@@ -35,6 +36,7 @@ def gui():
     plt.legend(title='Investments')
     plt.show()
 
+print(pd.__version__)
 get_investment_fund()
 gui()
 
