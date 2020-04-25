@@ -11,12 +11,14 @@ def get_investment_fund():
     html = request.urlopen(url).read().decode('utf8')
     html[:60]
     soup = bs.BeautifulSoup(html, 'html.parser')
-    title = soup.find('title')
-    print(title.string)
+    global title
+    title = soup.find('title').string
+    title = title[3:24]
+    #print(title.string)
 
     test = soup.find(class_='Ta(end) Fw(600) Lh(14px)')
 
-    print(test)
+    #print(test)
 
 def gui():
     #labels = ["AJ Bell Balanced ", "FTSE 250", "HSBC"]
@@ -24,7 +26,7 @@ def gui():
     #y = np.linspace(50, 45, 2)
 
     # Plot data
-    plt.plot(x, x, label='AJ Bell Balanced Fund')
+    plt.plot(x, x, label=title)
     plt.plot(0, 0, label='FTSE 250')
     plt.plot(0, 0, label='HSBC')
 
@@ -36,7 +38,7 @@ def gui():
     plt.legend(title='Investments')
     plt.show()
 
-print(pd.__version__)
+title = None
 get_investment_fund()
 gui()
 
