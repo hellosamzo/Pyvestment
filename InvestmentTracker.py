@@ -7,10 +7,13 @@ import numpy as np
 import pandas as pd
 import cryptocompare
 
+def send_email_alert(crypto):
+    print('sending email')
+
 def get_crypto(crypto):
     cryptoPrice = cryptocompare.get_price(crypto,curr='USD',full=False)
     print(cryptoPrice)
-
+    # if crypto price has fallen e.g. >10%, then send_email_alert(crypto)
 
 def get_investment_fund():
     url = "https://uk.finance.yahoo.com/quote/0P00019YY3.L?p=0P00019YY3.L&.tsrc=fin-srch"
