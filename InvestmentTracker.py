@@ -5,6 +5,12 @@ from urllib import request
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import cryptocompare
+
+def get_crypto(crypto):
+    cryptoPrice = cryptocompare.get_price(crypto,curr='USD',full=False)
+    print(cryptoPrice)
+
 
 def get_investment_fund():
     url = "https://uk.finance.yahoo.com/quote/0P00019YY3.L?p=0P00019YY3.L&.tsrc=fin-srch"
@@ -39,6 +45,7 @@ def gui():
     plt.show()
 
 title = None
+get_crypto('ETH')
 get_investment_fund()
 gui()
 
